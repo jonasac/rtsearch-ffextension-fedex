@@ -2,8 +2,15 @@
   "name": "rtuiosearch-addon",
   "title": "rtuiosearch-addon",
   "id": "jid1-igV0UKIoTXPkMA",
-  "description": "a basic add-on",
-  "author": "",
+  "description": "a basic search addons leveraging RT Simple Search",
+  "author": "Jonas Arnold Clasen",
   "license": "MPL 2.0",
-  "version": "0.1"
+  "version": "0.1",
+  "preferences": [{
+      "name": "instanceLocation",
+      "title": "Instance Location",
+      "description": "The url for the RT instance to use with this extension",
+      "type": "string",
+      "value": "https://rt.uio.no"
+  }]
 }
