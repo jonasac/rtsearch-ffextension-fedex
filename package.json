@@ -2,7 +2,7 @@
   "name": "rtuiosearch-addon",
   "title": "rtuiosearch-addon",
   "id": "jid1-igV0UKIoTXPkMA",
-  "description": "a basic search addons leveraging RT Simple Search",
+  "description": "a addon for easy access to RT Simple Search",
   "author": "Jonas Arnold Clasen",
   "license": "MPL 2.0",
   "version": "0.1",
