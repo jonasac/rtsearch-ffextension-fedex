@@ -4,6 +4,41 @@ function getValue(field) {
     return document.getElementById(field).value;
 }
 
+function assertContent() {
+    var ticketnr = getValue('ticketnr');
+    var requestor = getValue('requestor');
+    var subject = getValue('subject');
+    var queue = getValue('queue');
+    var status = getValue('status');
+    var owner = getValue('owner');
+
+    if (ticketnr !== "") {
+        return true;
+    }
+
+    if (requestor !== "") {
+        return true;
+    }
+
+    if (subject !== "") {
+        return true;
+    }
+
+    if (queue !== "") {
+        return true;
+    }
+
+    if (status !== "") {
+        return true;
+    }
+
+    if (owner !== "") {
+        return true;
+    }
+
+    return false;
+}
+
 function getFields() {
     var ticketnr = getValue('ticketnr');
     var requestor = getValue('requestor');
@@ -42,7 +77,9 @@ function getFields() {
     return tmp.join(" ");
 }
 searchButton.onclick = function(event) {
-    self.port.emit("search", getFields());
+    if (assertContent()) {
+        self.port.emit("search", getFields());
+    }
 }
 
 self.port.on("show", function(a) {
@@ -56,7 +93,7 @@ self.port.emit("resize", {
 });
 
 window.onkeyup = function(event) {
-    if (event.keyCode == 13) {
+    if (event.keyCode == 13 && assertContent()) {
         self.port.emit("search", getFields());
     }
 }
